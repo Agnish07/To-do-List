@@ -32,6 +32,8 @@ function ToDoList() {
             })
             .catch(err => console.error('Error adding task:', err));
     }
+    console.log('Backend URL:', axiosInstance.defaults.baseURL);
+
 }
 
 
