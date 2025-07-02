@@ -1,0 +1,55 @@
+# -------------------------------------
+# Node.js Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# -------------------------------------
+# Dependency directories
+node_modules
+
+# -------------------------------------
+# Production build
+dist
+dist-ssr
+.vite
+
+# -------------------------------------
+# Local environment files
+.env
+backend/.env
+frontend/.env
+
+# -------------------------------------
+# Mac system files
+.DS_Store
+
+# -------------------------------------
+# Vite cache
+.vite
+
+# -------------------------------------
+# Optional lock files (uncomment if switching package managers often)
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
+
+# -------------------------------------
+# Editor settings
+.vscode/*
+!.vscode/extensions.json
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# -------------------------------------
+# Optional OS-specific files
+Thumbs.db
+ehthumbs.db

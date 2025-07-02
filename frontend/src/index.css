@@ -1,0 +1,107 @@
+body{
+  background-color: #ffb3c6;
+}
+.todolist{
+  background-color: #ffb3c6;
+  font-family: "Zain";
+  font-weight: 100;
+  font-style: normal;
+  text-align: center;
+
+}
+
+h1{
+  font-size: 3em;
+  font-family: 'Pixelify Sans';
+  /* color: rgb(255, 255, 255); */
+  color: rgb(37, 37, 37);
+  padding: 0;
+  margin: 0;
+  padding-top: 50px;
+}
+
+button{
+  font-size: 1.3rem;
+  font-family: "Zain";
+  padding: 7px 14px;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.4s ease;
+}
+
+.add-button{
+  background-color: hsl(164, 90%, 42%);
+  color: white;
+}
+
+.add-button:hover{
+  background-color: hsl(164, 90%, 35%);
+
+}
+
+.delete-button{
+  background-color: hsl(355, 78%, 60%);
+  /* background-color: #ffafcc; */
+  color: white;
+}
+
+.delete-button:hover{
+  background-color: hsl(355, 78%, 40%);
+
+}
+
+.move-button{
+  background-color: hsl(209, 73%, 64%);
+}
+
+.move-button:hover{
+  background-color: hsl(209, 73%, 54%);
+}
+
+input[type = "text"]{
+  font-size: 1.6 rem;
+  padding: 10px;
+  border: 2px solid rgb(189, 189, 189);
+  border-radius: 5px;
+  color: rgb(51, 51, 51);
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+
+ol{
+  padding: 0;
+}
+
+li{
+  font-size: 2rem;
+  font-weight: 350;
+  padding: 15px;
+  border-radius: 10px;
+  background-color: #ffc8dd;
+  margin-bottom: 10px;
+  display: flex;
+  justify-self: center;
+  align-items: center;
+  width: 1000px;
+  transition: transform 0.3s ease;
+}
+
+li:hover{
+  transform: scale(1.05);
+}
+
+.text{
+  flex: 1;
+}
+.delete-button, .move-button{
+  padding: 8px 12px;
+  font-size: 1.3rem;
+  margin-left: 10px;
+}
+.cat-image{
+  padding: 0;
+  width: 200px;
+  margin: 0;
+}
