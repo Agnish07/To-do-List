@@ -22,15 +22,18 @@ function ToDoList() {
     }
 
     function addTask() {
-        if (newTask.trim() !== "") {
-            axiosInstance.post('/tasks', { text: newTask })
-                .then(() => {
-                    fetchTasks();
-                    setNewTask("");
-                })
-                .catch(err => console.error('Error adding task:', err));
-        }
+    if (newTask.trim() !== "") {
+        console.log('Sending task to backend:', newTask); // ✅ Add this to debug
+        axiosInstance.post('/tasks', { text: newTask })
+            .then((res) => {
+                console.log('Task added successfully:', res.data); // ✅ Check this appears
+                fetchTasks();
+                setNewTask("");
+            })
+            .catch(err => console.error('Error adding task:', err));
     }
+}
+
 
     function deleteTask(id) {
         axiosInstance.delete(`/tasks/${id}`)
