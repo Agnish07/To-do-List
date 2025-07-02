@@ -5,11 +5,11 @@ const cors = require('cors');
 
 const app = express();
 
-// ✅ CORS setup
+// ✅ CORS setup (Make sure this is your deployed Vercel frontend URL)
 const corsOptions = {
     origin: [
-        'https://to-do-list-h9gt.vercel.app', // Deployed frontend URL
-        'http://localhost:3000'              // Local development
+        'https://to-do-list-ochre-alpha.vercel.app', // ✅ Your Vercel Frontend
+        'http://localhost:3000'                      // ✅ Local development
     ],
     methods: ['GET', 'POST', 'DELETE'],
     credentials: true
