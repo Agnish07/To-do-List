@@ -2,18 +2,25 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import catImage from './cat.png';
 
+// ✅ Your Render backend URL
+const BASE_URL = 'https://to-do-list-h9gt.onrender.com';
+
+axios.get(`${BASE_URL}/tasks`)
+axios.post(`${BASE_URL}/tasks`, { text: newTask })
+axios.delete(`${BASE_URL}/tasks/${id}`)
+
 function ToDoList() {
 
     const [tasks, setTasks] = useState([]);
     const [newTask, setNewTask] = useState("");
 
-    // Fetch tasks from backend
+    // Fetch tasks from backend when the component loads
     useEffect(() => {
         fetchTasks();
     }, []);
 
     function fetchTasks() {
-        axios.get('http://localhost:4000/tasks') // Updated port
+        axios.get(`${BASE_URL}/tasks`)
             .then(res => setTasks(res.data))
             .catch(err => console.error(err));
     }
@@ -24,7 +31,7 @@ function ToDoList() {
 
     function addTask() {
         if (newTask.trim() !== "") {
-            axios.post('http://localhost:4000/tasks', { text: newTask }) // Updated port
+            axios.post(`${BASE_URL}/tasks`, { text: newTask })
                 .then(() => {
                     fetchTasks();
                     setNewTask("");
@@ -34,7 +41,7 @@ function ToDoList() {
     }
 
     function deleteTask(id) {
-        axios.delete(`http://localhost:4000/tasks/${id}`) // Updated port
+        axios.delete(`${BASE_URL}/tasks/${id}`)
             .then(() => fetchTasks())
             .catch(err => console.error(err));
     }
