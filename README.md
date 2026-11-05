@@ -5,7 +5,7 @@ This is a full-stack To-Do List application built using:
 
 🛠️ Backend: Node.js, Express
 
-🗂️ Database: MongoDB
+🗂️ Database: SQLite (via Node's built-in node:sqlite)
 
 It allows users to:
 
@@ -31,9 +31,26 @@ TO-DO-LIST/
 └── README.md
 🚀 Getting Started
 📦 Prerequisites
-Node.js and npm installed
+Node.js 22.5+ and npm installed (SQLite is built into Node — nothing to install or run separately)
 
-MongoDB running locally or on MongoDB Atlas
+🔐 Environment Variables
+
+Create `backend/.env` (see `backend/.env.example`):
+
+```
+JWT_SECRET=<a long random string>
+PORT=4000
+```
+
+The database is a single file at `backend/todolist.db`, created automatically on first start. It is gitignored. To reset everything, stop the server and delete that file.
+
+Create `frontend/.env` (see `frontend/.env.example`):
+
+```
+VITE_BACKEND_URL=http://localhost:4000
+```
+
+The server refuses to start without `JWT_SECRET`, since a missing secret would make login tokens forgeable.
 
 ⚙️ Backend Setup (Express API)
 Navigate to the backend folder:
@@ -86,12 +103,28 @@ Copy
 Edit
 http://localhost:5173
 🔗 API Endpoints
-Method	Endpoint	Description
-GET	/tasks	Get all tasks
-POST	/tasks	Add a new task
-DELETE	/tasks/:id	Delete a task
+
+Auth:
+
+| Method | Endpoint | Description |
+|---|---|---|
+| POST | /auth/signup | Create an account, returns a JWT |
+| POST | /auth/login | Log in, returns a JWT |
+| GET | /auth/me | Current user (requires token) |
+
+Tasks (all require `Authorization: Bearer <token>`):
+
+| Method | Endpoint | Description |
+|---|---|---|
+| GET | /tasks | Get the logged-in user's tasks |
+| POST | /tasks | Add a new task |
+| DELETE | /tasks/:id | Delete one of your own tasks |
 
 📸 Features
+✅ Email + password signup and login (JWT)
+
+✅ Each user only sees their own tasks
+
 ✅ Add new tasks
 
 ✅ Delete tasks
@@ -100,21 +133,23 @@ DELETE	/tasks/:id	Delete a task
 
 ✅ React frontend using Vite
 
-✅ Express.js backend with MongoDB
+✅ Express.js backend with SQLite
 
 ✅ REST API architecture
 
 📚 Technologies Used
 Frontend: React, Vite, Axios
 
-Backend: Node.js, Express, Mongoose
+Backend: Node.js, Express, bcryptjs, jsonwebtoken
 
-Database: MongoDB
+Database: SQLite (node:sqlite)
 
 🚀 Future Improvements
 Task completion toggle (checkbox)
 
-User authentication
+Password reset
+
+Persist task reordering
 
 Task categories
 

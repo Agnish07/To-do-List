@@ -3,7 +3,7 @@ import axiosInstance from './axiosInstance';
 import './App.css';
 import catImage from './cat.png';
 
-function ToDoList() {
+function ToDoList({ email, onLogout }) {
     const [tasks, setTasks] = useState([]);
     const [newTask, setNewTask] = useState("");
 
@@ -61,6 +61,11 @@ function ToDoList() {
 
     return (
         <div className="todolist">
+            <div className="user-bar">
+                <span className="user-email">{email}</span>
+                <button className="logout-button" onClick={onLogout}>Log Out</button>
+            </div>
+
             <h1>My To Do List</h1>
             <img src={catImage} alt="cat" className = "cat-image"/>
 

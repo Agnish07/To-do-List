@@ -25,6 +25,13 @@ backend/.env
 frontend/.env
 
 # -------------------------------------
+# SQLite database files
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+
+# -------------------------------------
 # Mac system files
 .DS_Store
 
